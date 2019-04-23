@@ -24,19 +24,16 @@ class Controller {
 
   private String processParam(String[] args, Command command) throws Exception {
     switch (command) {
-      case PRINT_USAGE:
-      case LIST_TASKS:
-      case INVALID_COMMAND:
-        return "";
-
       case ADD_TASK:
         return getStringParam(args);
 
       case REMOVE_TASK:
       case COMPLETE_TASK:
         return getNumberParam(args);
+
+      default:
+        return "";
     }
-    return "";
   }
 
   private String getStringParam(String[] args) throws Exception {
@@ -118,8 +115,6 @@ class Controller {
     } catch (NumberFormatException e) {
       return false;
     }
-
-
   }
 
   enum Command {
