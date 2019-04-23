@@ -23,10 +23,10 @@ class TodoApp {
         System.out.println("Add task: " + param);
         break;
       case REMOVE_TASK:
-        System.out.println("Remove task");
+        System.out.println("Remove task: " + param);
         break;
       case COMPLETE_TASK:
-        System.out.println("Complete task");
+        System.out.println("Complete task: " + param);
         break;
       case INVALID_COMMAND:
         break;
