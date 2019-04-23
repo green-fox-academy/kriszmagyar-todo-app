@@ -1,6 +1,5 @@
 package todoapp;
 
-import java.util.LinkedList;
 import todoapp.Controller.Command;
 
 class TodoApp {
