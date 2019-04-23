@@ -4,18 +4,45 @@ class Controller {
 
   Command getCommand(String[] args) {
     try {
-      return process(args);
+      return processCommand(args);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return Command.INVALID_COMMAND;
     }
   }
 
-  String getParam(String[] args) {
-    return "param";
+  String getParam(String[] args, Command command) {
+    return processParam(args, command);
   }
 
-  private Command process(String[] args) throws Exception {
+  private String processParam(String[] args, Command command) {
+    switch (command) {
+      case PRINT_USAGE:
+      case LIST_TASKS:
+      case INVALID_COMMAND:
+        return "";
+      case ADD_TASK:
+        return getStringParam(args);
+      case REMOVE_TASK:
+      case COMPLETE_TASK:
+        return getNumberParam(args);
+    }
+    return "";
+  }
+
+  private String getStringParam(String[] args) {
+    StringBuilder param = new StringBuilder();
+    for (int i = 1; i < args.length; i++) {
+      param.append(args[i]).append(" ");
+    }
+    return param.deleteCharAt(param.length() - 1).toString();
+  }
+
+  private String getNumberParam(String[] args) {
+    return "30";
+  }
+
+  private Command processCommand(String[] args) throws Exception {
     if (isNoCommands(args)) {
       return Command.PRINT_USAGE;
     }

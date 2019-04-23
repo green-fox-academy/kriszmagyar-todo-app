@@ -7,11 +7,11 @@ class TodoApp {
   TodoApp(String[] args) {
     Controller controller = new Controller();
     Command command = controller.getCommand(args);
-    String param = controller.getParam(args);
-    handleCommand(command);
+    String param = controller.getParam(args, command);
+    handleCommand(command, param);
   }
 
-  private void handleCommand(Command command) {
+  private void handleCommand(Command command, String param) {
     switch (command) {
       case PRINT_USAGE:
         System.out.println("Print usage");
@@ -20,7 +20,7 @@ class TodoApp {
         System.out.println("List tasks");
         break;
       case ADD_TASK:
-        System.out.println("Add task");
+        System.out.println("Add task: " + param);
         break;
       case REMOVE_TASK:
         System.out.println("Remove task");
