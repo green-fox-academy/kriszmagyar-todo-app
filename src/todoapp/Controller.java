@@ -7,29 +7,66 @@ class Controller {
       return process(args);
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      return Command.INVALID_COMMMAND;
+      return Command.INVALID_COMMAND;
     }
   }
 
+  String getParam(String[] args) {
+    return "param";
+  }
+
   private Command process(String[] args) throws Exception {
-    if (args.length == 0) {
+    if (isNoCommands(args)) {
       return Command.PRINT_USAGE;
     }
 
     String command = args[0];
-    if (command.charAt(0) != '-') {
-      throw new Exception("Command " + command + " is not found!");
+    if (isInvalidStart(command)) {
+      throw new Exception("Commands must start with '-'!");
     }
 
-    if (command.equals("-l") || command.equals("-list")) {
+    if (isListTasks(command)) {
       return Command.LIST_TASKS;
     }
+    if (isAddTask(command)) {
+      return Command.ADD_TASK;
+    }
+    if (isRemoveTask(command)) {
+      return Command.REMOVE_TASK;
+    }
+    if (isCompleteTask(command)) {
+      return Command.COMPLETE_TASK;
+    }
 
-    return Command.INVALID_COMMMAND;
+    throw new Exception("Command '" + command + "' is invalid.");
+  }
+
+  private boolean isNoCommands(String[] args) {
+    return args.length == 0;
+  }
+
+  private boolean isInvalidStart(String command) {
+    return command.charAt(0) != '-';
+  }
+
+  private boolean isListTasks(String command) {
+    return command.equals("-l") || command.equals("-list");
+  }
+
+  private boolean isAddTask(String command) {
+    return command.equals("-a") || command.equals("-add");
+  }
+
+  private boolean isRemoveTask(String command) {
+    return command.equals("-r") || command.equals("-remove");
+  }
+
+  private boolean isCompleteTask(String command) {
+    return command.equals("-c") || command.equals("-complete");
   }
 
   enum Command {
-    PRINT_USAGE, LIST_TASKS, ADD_TASK, REMOVE_TASK, COMPLETE_TASK, INVALID_COMMMAND
+    PRINT_USAGE, LIST_TASKS, ADD_TASK, REMOVE_TASK, COMPLETE_TASK, INVALID_COMMAND
   }
 
 }

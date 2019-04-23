@@ -7,7 +7,7 @@ class TodoApp {
   TodoApp(String[] args) {
     Controller controller = new Controller();
     Command command = controller.getCommand(args);
-
+    String param = controller.getParam(args);
     handleCommand(command);
   }
 
@@ -28,7 +28,7 @@ class TodoApp {
       case COMPLETE_TASK:
         System.out.println("Complete task");
         break;
-      case INVALID_COMMMAND:
+      case INVALID_COMMAND:
         break;
     }
   }
