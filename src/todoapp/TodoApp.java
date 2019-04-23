@@ -23,10 +23,10 @@ class TodoApp {
         Display.listTasks(model.getTasks());
         break;
       case ADD_TASK:
-        System.out.println("Add task: " + param);
+        model.add(param);
         break;
       case REMOVE_TASK:
-        System.out.println("Remove task: " + param);
+        model.remove(param);
         break;
       case COMPLETE_TASK:
         System.out.println("Complete task: " + param);
