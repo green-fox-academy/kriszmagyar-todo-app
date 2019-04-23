@@ -12,7 +12,7 @@ class Model {
     this.tasks.add(new Task("Walk the dog"));
   }
 
-  public List<Task> getTasks() {
+  List<Task> getTasks() {
     return this.tasks;
   }
 }
