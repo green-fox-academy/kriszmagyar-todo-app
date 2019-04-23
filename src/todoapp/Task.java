@@ -6,7 +6,7 @@ class Task {
   private boolean isCompleted;
 
   String getName() {
-    return name;
+    return this.name;
   }
 
   void setName(String name) {
@@ -14,7 +14,7 @@ class Task {
   }
 
   boolean isCompleted() {
-    return isCompleted;
+    return this.isCompleted;
   }
 
   String getCompleted() {
@@ -22,6 +22,6 @@ class Task {
   }
 
   void setCompleted(boolean completed) {
-    isCompleted = completed;
+    this.isCompleted = completed;
   }
 }
