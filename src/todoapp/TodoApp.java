@@ -14,7 +14,7 @@ class TodoApp {
   private void handleCommand(Command command, String param) {
     switch (command) {
       case PRINT_USAGE:
-        System.out.println("Print usage");
+        Display.printUsage();
         break;
       case LIST_TASKS:
         System.out.println("List tasks");
