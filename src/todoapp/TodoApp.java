@@ -1,10 +1,14 @@
 package todoapp;
 
+import java.util.LinkedList;
 import todoapp.Controller.Command;
 
 class TodoApp {
 
+  private Model model;
+
   TodoApp(String[] args) {
+    model = new Model();
     Controller controller = new Controller();
     Command command = controller.getCommand(args);
     String param = controller.getParam(args, command);
@@ -17,7 +21,7 @@ class TodoApp {
         Display.printUsage();
         break;
       case LIST_TASKS:
-        System.out.println("List tasks");
+        Display.listTasks(model.getTasks());
         break;
       case ADD_TASK:
         System.out.println("Add task: " + param);
