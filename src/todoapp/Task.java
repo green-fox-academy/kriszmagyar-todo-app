@@ -1,5 +1,7 @@
 package todoapp;
 
+import java.util.Iterator;
+
 public class Task {
 
   private String name;
@@ -36,8 +38,12 @@ public class Task {
     this.isCompleted = true;
   }
 
+  public int getImportanceLevel() {
+    return importanceLevel;
+  }
+
   @Override
   public String toString() {
-    return String.format("%s %s", getCompleted(), getName());
+    return String.format("%s;%s;%s", getName(), isCompleted, getImportanceLevel());
   }
 }

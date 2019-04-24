@@ -20,8 +20,29 @@ class FileHandler {
     this.path = Paths.get(ROOT + fileName + EXTENSION);
   }
 
-  List<Task> initTasks() {
+  List<Task> getTasks() {
     return processRawData();
+  }
+
+  void write(List<Task> tasks) {
+    List<String> tasksAsString = format(tasks);
+    writeToFile(tasksAsString);
+  }
+
+  private List<String> format(List<Task> tasks) {
+    List<String> formattedTasks = new LinkedList<>();
+    for (Task t : tasks) {
+      formattedTasks.add(t.toString());
+    }
+    return formattedTasks;
+  }
+
+  private void writeToFile(List<String> tasks) {
+    try {
+      Files.write(this.path, tasks);
+    } catch (IOException e) {
+      System.out.println("Unable to write file: " + this.path);
+    }
   }
 
   private List<Task> processRawData() {

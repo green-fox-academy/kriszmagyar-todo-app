@@ -1,6 +1,5 @@
 package todoapp.model;
 
-import java.util.LinkedList;
 import java.util.List;
 import todoapp.Task;
 
@@ -11,15 +10,17 @@ public class Model {
 
   public Model() {
     this.fileHandler = new FileHandler("sdf65sdh");
-    this.tasks = this.fileHandler.initTasks();
+    this.tasks = this.fileHandler.getTasks();
   }
 
   public void add(String name) {
     this.tasks.add(new Task(name));
+    this.fileHandler.write(this.tasks);
   }
 
   public void remove(String index) {
     this.tasks.remove(Integer.parseInt(index) - 1);
+    this.fileHandler.write(this.tasks);
   }
 
   public void complete(String index) {
@@ -28,6 +29,7 @@ public class Model {
         tasks.get(i).complete();
       }
     }
+    this.fileHandler.write(this.tasks);
   }
 
   public List<Task> getTasks() {
