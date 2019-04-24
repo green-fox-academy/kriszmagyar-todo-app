@@ -4,10 +4,16 @@ public class Task {
 
   private String name;
   private boolean isCompleted;
+  private int importanceLevel;
 
   public Task(String name) {
+    this(name, false, 1);
+  }
+
+  public Task(String name, boolean isCompleted, int importanceLevel) {
     this.name = name;
-    this.isCompleted = false;
+    this.isCompleted = isCompleted;
+    this.importanceLevel = importanceLevel;
   }
 
   String getName() {

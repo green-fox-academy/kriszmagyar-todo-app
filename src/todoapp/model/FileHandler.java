@@ -21,14 +21,37 @@ class FileHandler {
   }
 
   List<Task> initTasks() {
-    List<String> data = getData();
-    System.out.println(data);
+    return processRawData();
+  }
+
+  private List<Task> processRawData() {
+    List<String> rawData = getRawData();
     List<Task> tasks = new LinkedList<>();
-    System.out.println("Getting the tasks!");
+
+    for (String s : rawData) {
+      String[] row = s.split(";");
+      String name = getName(row);
+      boolean isCompleted = getCompleted(row);
+      int importanceLevel = getImportanceLevel(row);
+      tasks.add(new Task(name, isCompleted, importanceLevel));
+    }
+
     return tasks;
   }
 
-  private List<String> getData() {
+  private String getName(String[] row) {
+    return row[0];
+  }
+
+  private boolean getCompleted(String[] row) {
+    return Boolean.getBoolean(row[1]);
+  }
+
+  private int getImportanceLevel(String[] row) {
+    return Integer.parseInt(row[2]);
+  }
+
+  private List<String> getRawData() {
     try {
       return Files.readAllLines(this.path);
     } catch (IOException e) {
