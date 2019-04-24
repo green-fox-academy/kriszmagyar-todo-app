@@ -1,7 +1,5 @@
 package todoapp;
 
-import java.util.Iterator;
-
 public class Task {
 
   private String name;
