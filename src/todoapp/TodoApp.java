@@ -29,7 +29,7 @@ class TodoApp {
         model.remove(param);
         break;
       case COMPLETE_TASK:
-        System.out.println("Complete task: " + param);
+        model.complete(param);
         break;
       case INVALID_COMMAND:
         break;

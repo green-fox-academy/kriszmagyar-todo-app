@@ -23,7 +23,11 @@ class Model {
   }
 
   List<Task> complete(String index) {
-    System.out.println("Complete: " + index);
+    for (int i = 0; i < this.tasks.size(); i++) {
+      if (i + 1 == Integer.parseInt(index)) {
+        tasks.get(i).complete();
+      }
+    }
     return getTasks();
   }
 

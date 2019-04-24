@@ -26,8 +26,8 @@ class Task {
     return isCompleted() ? "[X]" : "[ ]";
   }
 
-  void setCompleted(boolean completed) {
-    this.isCompleted = completed;
+  void complete() {
+    this.isCompleted = true;
   }
 
   @Override
