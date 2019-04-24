@@ -44,7 +44,7 @@ class FileHandler {
   }
 
   private boolean getCompleted(String[] row) {
-    return Boolean.getBoolean(row[1]);
+    return Boolean.parseBoolean(row[1]);
   }
 
   private int getImportanceLevel(String[] row) {
