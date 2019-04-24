@@ -17,7 +17,7 @@ class Display {
   static void listTasks(List<Task> tasks) {
     for (int i = 0; i < tasks.size(); i++) {
       Task task = tasks.get(i);
-      System.out.println((i + 1) + " - " + task.getCompleted() + " " + task.getName());
+      System.out.println((i + 1) + " - " + task);
     }
   }
 
