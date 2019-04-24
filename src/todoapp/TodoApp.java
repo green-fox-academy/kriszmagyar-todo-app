@@ -1,6 +1,7 @@
 package todoapp;
 
 import todoapp.Controller.Command;
+import todoapp.model.Model;
 
 class TodoApp {
 

@@ -1,11 +1,11 @@
 package todoapp;
 
-class Task {
+public class Task {
 
   private String name;
   private boolean isCompleted;
 
-  Task(String name) {
+  public Task(String name) {
     this.name = name;
     this.isCompleted = false;
   }
@@ -26,7 +26,7 @@ class Task {
     return isCompleted() ? "[X]" : "[ ]";
   }
 
-  void complete() {
+  public void complete() {
     this.isCompleted = true;
   }
 
