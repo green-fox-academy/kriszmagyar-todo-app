@@ -6,11 +6,12 @@ import todoapp.Task;
 
 public class Model {
 
+  private FileHandler fileHandler;
   private List<Task> tasks;
 
   public Model() {
-    this.tasks = new LinkedList<>();
-    this.tasks.add(new Task("Walk the dog"));
+    this.fileHandler = new FileHandler("sdf65sdh");
+    this.tasks = this.fileHandler.initTasks();
   }
 
   public void add(String name) {
