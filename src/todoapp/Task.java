@@ -42,6 +42,10 @@ public class Task {
     return importanceLevel;
   }
 
+  public String print() {
+    return String.format("%s %s", getCompleted(), getName());
+  }
+
   @Override
   public String toString() {
     return String.format("%s;%s;%s", getName(), isCompleted, getImportanceLevel());
