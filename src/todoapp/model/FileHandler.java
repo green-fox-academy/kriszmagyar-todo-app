@@ -13,6 +13,7 @@ class FileHandler {
 
   private static final String ROOT = "assets/";
   private static final String EXTENSION = ".csv";
+  private static final String DIVIDER = ";";
 
   private Path path;
 
@@ -50,7 +51,7 @@ class FileHandler {
     List<Task> tasks = new LinkedList<>();
 
     for (String s : rawData) {
-      String[] row = s.split(";");
+      String[] row = s.split(DIVIDER);
       String name = getName(row);
       boolean isCompleted = getCompleted(row);
       int importanceLevel = getImportanceLevel(row);
