@@ -7,7 +7,6 @@ class Controller {
       return processCommand(args);
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      System.exit(1);
       return Command.INVALID_COMMAND;
     }
   }
