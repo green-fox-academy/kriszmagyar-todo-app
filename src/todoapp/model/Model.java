@@ -5,22 +5,22 @@ import todoapp.Task;
 
 public class Model {
 
-  private FileHandler fileHandler;
+  private DataHandler dataHandler;
   private List<Task> tasks;
 
   public Model() {
-    this.fileHandler = new FileHandler("sdf65sdh");
-    this.tasks = this.fileHandler.getTasks();
+    this.dataHandler = new FileHandler("sdf65sdh");
+    this.tasks = this.dataHandler.getTasks();
   }
 
   public void add(String name) {
     this.tasks.add(new Task(name));
-    this.fileHandler.write(this.tasks);
+    this.dataHandler.write(this.tasks);
   }
 
   public void remove(String index) {
     this.tasks.remove(Integer.parseInt(index) - 1);
-    this.fileHandler.write(this.tasks);
+    this.dataHandler.write(this.tasks);
   }
 
   public void complete(String index) {
@@ -29,7 +29,7 @@ public class Model {
         tasks.get(i).complete();
       }
     }
-    this.fileHandler.write(this.tasks);
+    this.dataHandler.write(this.tasks);
   }
 
   public List<Task> getTasks() {

@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import todoapp.Task;
 
-class FileHandler {
+class FileHandler implements DataHandler {
 
   private static final String ROOT = "assets/";
   private static final String EXTENSION = ".csv";
@@ -21,11 +21,11 @@ class FileHandler {
     this.path = Paths.get(ROOT + fileName + EXTENSION);
   }
 
-  List<Task> getTasks() {
+  public List<Task> getTasks() {
     return processRawData();
   }
 
-  void write(List<Task> tasks) {
+  public void write(List<Task> tasks) {
     List<String> tasksAsString = format(tasks);
     writeToFile(tasksAsString);
   }
