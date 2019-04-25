@@ -77,7 +77,7 @@ class FileHandler implements DataHandler {
     try {
       return Files.readAllLines(this.path);
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println("File not found: " + this.path.toAbsolutePath());
       return new ArrayList<>();
     }
   }
